@@ -8,7 +8,7 @@ import java.nio.file.StandardOpenOption;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Repository;
 
 import com.docencia.dam.repositories.interfaces.JobRepository;
@@ -19,7 +19,7 @@ public class FileJobRepository implements JobRepository {
     static String fileName;
     static Path path;
 
-    @Autowired
+
     public void setFileName(String fileName) {
         this.fileName = fileName;
     }
