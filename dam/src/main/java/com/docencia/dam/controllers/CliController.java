@@ -23,6 +23,7 @@ public class CliController {
 
     public void menuConsola() {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Bienvenido al Lanzador de Procesos (CLI) Linux");
         System.out.println("=== Lanzador de Procesos (CLI) Linux ===\n" +
                 "Comandos:\n" +
                 "  lsof -i\n" +

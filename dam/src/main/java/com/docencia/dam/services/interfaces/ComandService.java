@@ -1,4 +1,5 @@
 package com.docencia.dam.services.interfaces;
+
 import java.util.regex.*;
 import com.docencia.dam.domain.Job;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +46,7 @@ public abstract class ComandService {
     }
 
     public void porcesarLinear(String linea) {
-        String[] arraycomando = linea.split("\s*");
+        String[] arraycomando = linea.split("\s+");
         this.setComando(arraycomando[0]);
         System.out.println("Comando: " + getComando());
         if (!validar(arraycomando)) {
@@ -88,7 +89,6 @@ public abstract class ComandService {
 
     public boolean validarComando() {
         if (!this.getComando().toUpperCase().equals(getTipoToString())) {
-            System.out.println("El comando es invalido");
             return false;
         }
         return true;
