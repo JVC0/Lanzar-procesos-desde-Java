@@ -49,11 +49,14 @@ public abstract class ComandService {
         String[] arraycomando = linea.split("\s+");
         this.setComando(arraycomando[0]);
         System.out.println("Comando: " + getComando());
+        if (arraycomando.length == 1 && arraycomando[0].equalsIgnoreCase("top")) {
+            linea = linea + " -bn1";
+        }
+        arraycomando = linea.split("\s+");
         if (!validar(arraycomando)) {
             System.out.println("El comando es invalido");
         }
         Process proceso;
-        // linea =ps aux | grep java
         try {
             proceso = new ProcessBuilder("sh", "-c", linea + " > mis_procesos.txt")
                     .start();

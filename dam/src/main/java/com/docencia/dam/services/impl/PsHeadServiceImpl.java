@@ -10,6 +10,6 @@ import com.docencia.dam.services.interfaces.ComandService;
 public class PsHeadServiceImpl extends ComandService {
     public PsHeadServiceImpl() {
         this.setTipo(Job.PS);
-        this.setExpresionRegular("^((-?(aux|xa|a)(\s+\\|\s+head)?)?)?$");
+        this.setExpresionRegular("^\\s*(-?(aux|xa|a)(\\s*\\|\\s*head)?)?\\s*$");
     }
 }
