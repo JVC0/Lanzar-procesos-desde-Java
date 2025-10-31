@@ -4,7 +4,7 @@ import java.util.regex.*;
 import com.docencia.dam.domain.Job;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.docencia.dam.repositories.interfaces.JobRepository;
-
+import java.util.Arrays;
 public abstract class ComandService {
     private String comando;
     private Job tipo;
@@ -77,9 +77,14 @@ public abstract class ComandService {
         if (!validarComando()) {
             return false;
         }
-        String parametro = arraycomando[1];
+
+        String parametros = "";
+        if (arraycomando.length > 1) {
+            parametros = String.join(" ", Arrays.copyOfRange(arraycomando, 1, arraycomando.length));
+        }
         Pattern pattern = Pattern.compile(expresionRegular);
-        Matcher matcher = pattern.matcher(parametro);
+        Matcher matcher = pattern.matcher(parametros);
+
         if (!matcher.find()) {
             System.out.println("NO cumple");
             return false;

@@ -9,6 +9,6 @@ import com.docencia.dam.services.interfaces.ComandService;
 public class LsofServiceImpl extends ComandService {
     public LsofServiceImpl() {
         this.setTipo(Job.LSOF);
-        this.setExpresionRegular("^((-(la|a|l))|\s*?)$");
+        this.setExpresionRegular("^(-(la|i|a|l))?$");
     }
 }

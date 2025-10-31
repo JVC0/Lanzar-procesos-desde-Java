@@ -9,6 +9,7 @@ import com.docencia.dam.domain.Job;
 public class TopServiceImpl extends ComandService {
     public TopServiceImpl(){
         this.setTipo(Job.TOP);
-        this.setExpresionRegular("^((-?(xa|a|aux))|\s*?)$");
+        this.setExpresionRegular("^((-b\\s+-n\\d+)|(-b)|(-n\\d+))?$");
+
     }
 }

@@ -33,9 +33,9 @@ public class CliController {
         if (linea.toUpperCase().startsWith("PS")) {
             psHeadServiceImpl.porcesarLinear(linea);
         } else if (linea.toUpperCase().startsWith("LSOF")) {
-            topServiceImpl.porcesarLinear(linea);
-        } else if (linea.toUpperCase().startsWith("TOP")) {
             lsofServiceImpl.porcesarLinear(linea);
+        } else if (linea.toUpperCase().startsWith("TOP")) {
+            topServiceImpl.porcesarLinear(linea);
         } else {
             logger.info("Comando no reconocido");
         }
