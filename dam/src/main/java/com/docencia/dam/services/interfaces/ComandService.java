@@ -1,5 +1,12 @@
+/**
+ * Clase abstracta que define el comportamiento base para los servicios de comandos
+ * 
+ * Esta clase proporciona métodos para procesar líneas de comandos, validar comandos etc
+ * 
+ * @author JVC0
+ * @version 1.0
+ */
 package com.docencia.dam.services.interfaces;
-
 import java.util.regex.*;
 import com.docencia.dam.domain.Job;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +22,16 @@ public abstract class ComandService {
     public JobRepository getFileRepository() {
         return fileRepository;
     }
-
+    /*  
+    * Inyección de dependencia para el repositorio de trabajos
+     */
     @Autowired
     public void setFileRepository(JobRepository fileRepository) {
         this.fileRepository = fileRepository;
     }
-
+    /*  
+    * Getters y Setters
+     */
     public void setComando(String comando) {
         this.comando = comando;
     }
@@ -44,7 +55,9 @@ public abstract class ComandService {
     public void setExpresionRegular(String expesionRegular) {
         this.expresionRegular = expesionRegular;
     }
-
+    /*  
+    * Método para procesar una línea de comando
+     */
     public void porcesarLinear(String linea) {
         String[] arraycomando = linea.split("\s+");
         this.setComando(arraycomando[0]);
@@ -65,7 +78,9 @@ public abstract class ComandService {
             e.printStackTrace();
         }
     }
-
+    /*
+    * Método para ejecutar el proceso del sistema
+     */
     public boolean ejecutarProceso(Process proceso) {
         try {
             proceso.waitFor();
@@ -75,7 +90,9 @@ public abstract class ComandService {
         return true;
 
     }
-
+    /*  
+    * Método para validar el comando y sus parámetros
+     */
     public boolean validar(String[] arraycomando) {
         if (!validarComando()) {
             return false;
@@ -94,7 +111,9 @@ public abstract class ComandService {
         }
         return true;
     }
-
+    /*
+    * Método para validar solo el comando principal
+     */
     public boolean validarComando() {
         if (!this.getComando().toUpperCase().equals(getTipoToString())) {
             return false;

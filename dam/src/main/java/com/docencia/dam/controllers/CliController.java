@@ -1,3 +1,12 @@
+/**
+ * Controlador principal para la interfaz de línea de comandos (CLI)
+ * 
+ * Esta clase maneja la entrada del usuario y delega la ejecución de comandos
+ * 
+ * 
+ * @author JVC0
+ * @version 1.0
+ */
 package com.docencia.dam.controllers;
 
 import org.slf4j.Logger;
